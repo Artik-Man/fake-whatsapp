@@ -29,6 +29,21 @@
         ava.src = 'https://www.thispersondoesnotexist.com/image?' + iterator++;
     });
 
+    const viewport = document.getElementById('viewport');
+    const scaleInput = document.getElementById('scale');
+
+    const setScale = (value) => {
+        viewport.style.transform = `translateY(-${(100 - value) / 2}%) scale(${value / 100})`
+    };
+
+    const initialScale = (100 * (window.innerHeight - 100) / 1334).toFixed(0);
+    setScale(initialScale);
+    scaleInput.value = initialScale;
+
+    scaleInput.addEventListener('input', e => {
+        setScale(e.target.value)
+    });
+
     const chat = document.getElementById('chat');
     chat.addEventListener('click', e => {
         if (e.target.className === 'action-delete') {

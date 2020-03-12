@@ -11,11 +11,25 @@
 <body>
 <div class="app">
     <div class="controls">
-        <label>
-            Avatar:
-            <input type="text" placeholder="URL" value="https://www.thispersondoesnotexist.com/image" id="avatar-url">
-        </label></div>
-    <div class="viewport">
+        <p>
+            Нажми на аватар, чтобы изменить картинку на случайную или введи URL на нужную тебе картинку в это поле
+            <label>
+                <input type="text" placeholder="URL" value="https://www.thispersondoesnotexist.com/image"
+                       id="avatar-url">
+            </label>
+        </p>
+        <p>
+            Размер холста можно изменять тут
+            <label>
+                40%
+                <input type="range" value="100" min="40" max="100" id="scale">
+                100%
+            </label>
+        </p>
+        <p>Можешь отредактировать "текущее время", "уровень заряда аккумулятора", "имя" и "время последней активности"
+            пользователя, а также "текст сообщений" и "дату отправки сообщения"</p>
+    </div>
+    <div class="viewport" id="viewport">
         <div class="statusbar">
             <div class="left">
                 <div class="signal">
@@ -54,12 +68,12 @@
                 </svg>
             </div>
             <div class="ava">
-                <button id="update-avatar">
+                <button id="update-avatar" title="Change avatar">
                     <img src="https://www.thispersondoesnotexist.com/image" alt="Avatar" id="avatar">
                 </button>
             </div>
             <div class="user">
-                <div class="name" contenteditable="true">Ульяна</div>
+                <div class="name" contenteditable="true" spellcheck="false">Женя Клиент</div>
                 <div class="sub">был(-а) сегодня в <span contenteditable="true">09:08</span></div>
             </div>
             <div class="video">
@@ -78,7 +92,7 @@
         </div>
         <div class="write-message">
             <div class="add">
-                <button id="add">
+                <button id="add" title="Add message">
                     <svg class="icon" width="40" height="38">
                         <use href="sprite.svg#plus"/>
                     </svg>
@@ -127,7 +141,7 @@
                 </svg>
             </div>
             <div class="message-content">
-                <div class="text" contenteditable="true">
+                <div class="text" contenteditable="true" spellcheck="false">
                     TEXT
                 </div>
                 <div class="info">

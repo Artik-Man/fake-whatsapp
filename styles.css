@@ -9,8 +9,10 @@ html, body {
 }
 
 .app {
-  display: flex;
-  flex-direction: row-reverse;
+  display: grid;
+  grid-template-areas: "viewport controls";
+  grid-template-columns: 750px 1fr;
+  grid-gap: 16px;
   padding: 50px;
   margin: 0 auto;
   width: 1200px;
@@ -38,12 +40,16 @@ html, body {
   cursor: pointer;
 }
 .app .controls {
-  margin: 0 auto;
-  max-width: 375px;
-  padding: 50px 0;
+  grid-area: controls;
+}
+.app .controls label {
+  display: flex;
+}
+.app .controls label input {
+  width: 100%;
 }
 .app .viewport {
-  margin: 0 auto;
+  grid-area: viewport;
   width: 750px;
   height: 1334px;
   box-shadow: 0 0 5px 0 black;

@@ -9,8 +9,10 @@ html, body {
 }
 
 .app {
-  display: flex;
-  flex-direction: row-reverse;
+  display: grid;
+  grid-template-areas: 'viewport controls';
+  grid-template-columns: 750px 1fr;
+  grid-gap: 16px;
   padding: 50px;
   margin: 0 auto;
   width: 1200px;
@@ -43,15 +45,22 @@ html, body {
 
 
   .controls {
-    margin: 0 auto;
-    max-width: 375px;
-    padding: 50px 0;
+    grid-area: controls;
+
+    label {
+      display: flex;
+
+      input {
+        width: 100%;
+      }
+    }
+
   }
 
   .viewport {
-    margin: 0 auto;
-    width: 2* 375px;
-    height: 2* 667px;
+    grid-area: viewport;
+    width: 750px;
+    height: 1334px;
     box-shadow: 0 0 5px 0 black;
     background: url(bg.png) center;
     background-size: 130%;
