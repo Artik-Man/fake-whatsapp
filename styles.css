@@ -1,10 +1,30 @@
 * {
   box-sizing: border-box;
+}
+
+*:not(button),
+*:not(input),
+*:not([contenteditable]) {
   cursor: default;
+  user-select: none;
 }
 
 [contenteditable] {
   cursor: text;
+}
+
+button {
+  cursor: pointer;
+  position: relative;
+}
+button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
 }
 
 html, body {
@@ -58,8 +78,21 @@ html, body {
 .viewport .statusbar .operator {
   padding: 0px 5px 0 3px;
 }
+.viewport .statusbar .battery-percent {
+  margin-top: -2px;
+}
+.viewport .statusbar .battery-percent input {
+  background: none;
+  border: none;
+  width: 50px;
+  text-align: right;
+  padding: 0;
+  margin-right: -15px;
+  font-family: inherit;
+}
 .viewport .statusbar .battery-icon {
   padding: 0 3px 0 3px;
+  color: #54d769;
 }
 .viewport .user-info {
   background: #f2f0ef;
@@ -104,6 +137,7 @@ html, body {
   justify-content: flex-end;
   flex-direction: column;
   padding: 5px 16px;
+  overflow-y: auto;
 }
 .viewport .write-message {
   background: #f6f6f6;
@@ -117,6 +151,17 @@ html, body {
 .viewport .write-message .add button {
   background: none;
   border: none;
+  position: relative;
+}
+.viewport .write-message .add button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  cursor: pointer;
 }
 .viewport .write-message .camera {
   padding: 8px 0 0 2px;
@@ -145,6 +190,27 @@ html, body {
   display: flex;
   justify-content: flex-start;
   --mainColor: #f7f7f7;
+  position: relative;
+}
+.message:hover .actions {
+  display: flex;
+}
+.message .actions {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  right: 0;
+  display: none;
+}
+.message .actions button {
+  background: none;
+  border: none;
+}
+.message .actions button.action-delete {
+  color: #c00;
+}
+.message .actions button.action-user {
+  color: teal;
 }
 .message .message-container {
   font-size: 14px;
@@ -188,6 +254,14 @@ html, body {
 .message.out {
   --mainColor: #dcf8c5;
   justify-content: flex-end;
+}
+.message.out .actions {
+  left: 0;
+  right: auto;
+  flex-direction: row-reverse;
+}
+.message.out .actions .action-user .icon {
+  transform: scale(-1, 1);
 }
 .message.out .dialog-point {
   left: 100%;

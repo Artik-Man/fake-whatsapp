@@ -1,10 +1,31 @@
 * {
   box-sizing: border-box;
+}
+
+*:not(button),
+*:not(input),
+*:not([contenteditable]) {
   cursor: default;
+  user-select: none;
 }
 
 [contenteditable] {
   cursor: text;
+}
+
+button {
+  cursor: pointer;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+  }
 }
 
 html, body {
@@ -63,8 +84,23 @@ html, body {
       padding: 0px 5px 0 3px;
     }
 
+    .battery-percent {
+      margin-top: -2px;
+
+      input {
+        background: none;
+        border: none;
+        width: 50px;
+        text-align: right;
+        padding: 0;
+        margin-right: -15px;
+        font-family: inherit;
+      }
+    }
+
     .battery-icon {
       padding: 0 3px 0 3px;
+      color: #54d769;
     }
   }
 
@@ -120,6 +156,7 @@ html, body {
     justify-content: flex-end;
     flex-direction: column;
     padding: 5px 16px;
+    overflow-y: auto;
   }
 
   .write-message {
@@ -134,6 +171,18 @@ html, body {
       button {
         background: none;
         border: none;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 2;
+          cursor: pointer;
+        }
       }
     }
 
@@ -170,6 +219,34 @@ html, body {
   display: flex;
   justify-content: flex-start;
   --mainColor: #f7f7f7;
+  position: relative;
+
+  &:hover {
+    .actions {
+      display: flex;
+    }
+  }
+
+  .actions {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    right: 0;
+    display: none;
+
+    button {
+      background: none;
+      border: none;
+
+      &.action-delete {
+        color: #c00;
+      }
+
+      &.action-user {
+        color: teal;
+      }
+    }
+  }
 
   .message-container {
     font-size: 14px;
@@ -221,6 +298,18 @@ html, body {
   &.out {
     --mainColor: #dcf8c5;
     justify-content: flex-end;
+
+    .actions {
+      left: 0;
+      right: auto;
+      flex-direction: row-reverse;
+
+      .action-user {
+        .icon {
+          transform: scale(-1, 1);
+        }
+      }
+    }
 
     .dialog-point {
       left: 100%;
