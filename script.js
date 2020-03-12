@@ -24,6 +24,11 @@
         ava.src = e.target.value;
     });
 
+    let iterator = 1;
+    document.getElementById('update-avatar').addEventListener('click', () => {
+        ava.src = 'https://www.thispersondoesnotexist.com/image?' + iterator++;
+    });
+
     const chat = document.getElementById('chat');
     chat.addEventListener('click', e => {
         if (e.target.className === 'action-delete') {

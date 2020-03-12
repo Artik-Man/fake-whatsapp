@@ -9,96 +9,100 @@
 
 </head>
 <body>
-<div class="controls">
-    <label>
-        Avatar:
-        <input type="text" placeholder="URL" value="https://www.thispersondoesnotexist.com/image" id="avatar-url">
-    </label></div>
-<div class="viewport">
-    <div class="statusbar">
-        <div class="left">
-            <div class="signal">
-                <svg width="17" height="10">
-                    <use href="sprite.svg#signal"/>
-                </svg>
+<div class="app">
+    <div class="controls">
+        <label>
+            Avatar:
+            <input type="text" placeholder="URL" value="https://www.thispersondoesnotexist.com/image" id="avatar-url">
+        </label></div>
+    <div class="viewport">
+        <div class="statusbar">
+            <div class="left">
+                <div class="signal">
+                    <svg width="34" height="20">
+                        <use href="sprite.svg#signal"/>
+                    </svg>
+                </div>
+                <div class="operator" contenteditable="true">Билайн</div>
+                <div class="wifi">
+                    <svg width="30" height="20">
+                        <use href="sprite.svg#wifi"/>
+                    </svg>
+                </div>
             </div>
-            <div class="operator" contenteditable="true">Билайн</div>
-            <div class="wifi">
-                <svg width="15" height="10">
-                    <use href="sprite.svg#wifi"/>
-                </svg>
-            </div>
-        </div>
-        <div class="time" contenteditable="true">20:55</div>
-        <div class="right">
-            <div class="lock-rotate"></div>
-            <div class="clock"></div>
-            <label class="battery-percent">
-                <input type="number" min="20" max="100" value="62" id="battery"/>
-                %
-            </label>
-            <div class="battery-icon">
-                <svg width="27" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 12">
-                    <rect id="battery-icon" x="2" y="2.5" width="12" height="7.5" rx="1" fill="currentColor"/>
-                    <path d=" M 25.25 8.187 C 26.113 7.965 26.75 7.182 26.75 6.25 C 26.75 5.318 26.113 4.535 25.25 4.313 L 25.25 8.187 Z  M 2.25 0.25 C 1.145 0.25 0.25 1.145 0.25 2.25 L 0.25 9.75 C 0.25 10.855 1.145 11.75 2.25 11.75 L 22.25 11.75 C 23.355 11.75 24.25 10.855 24.25 9.75 L 24.25 2.25 C 24.25 1.145 23.355 0.25 22.25 0.25 L 2.25 0.25 Z  M 2.25 1.25 C 1.698 1.25 1.25 1.698 1.25 2.25 L 1.25 9.75 C 1.25 10.302 1.698 10.75 2.25 10.75 L 22.25 10.75 C 22.802 10.75 23.25 10.302 23.25 9.75 L 23.25 2.25 C 23.25 1.698 22.802 1.25 22.25 1.25 L 2.25 1.25 Z "
-                          fill-rule="evenodd" fill="rgb(149,149,149)"/>
-                </svg>
-            </div>
-        </div>
-    </div>
-    <div class="user-info">
-        <div class="back">
-            <svg width="14" height="22">
-                <use href="sprite.svg#back"/>
-            </svg>
-        </div>
-        <div class="ava">
-            <img src="https://www.thispersondoesnotexist.com/image" alt="Avatar" id="avatar">
-        </div>
-        <div class="user">
-            <div class="name" contenteditable="true">Ульяна</div>
-            <div class="sub">был(-а) сегодня в <span contenteditable="true">09:08</span></div>
-        </div>
-        <div class="video">
-            <svg width="35" height="40">
-                <use href="sprite.svg#video"/>
-            </svg>
-        </div>
-        <div class="audio">
-            <svg width="19" height="40">
-                <use href="sprite.svg#audio"/>
-            </svg>
-        </div>
-    </div>
-    <div class="chat" id="chat">
-
-    </div>
-    <div class="write-message">
-        <div class="add">
-            <button id="add">
-                <svg class="icon" width="20" height="19">
-                    <use href="sprite.svg#plus"/>
-                </svg>
-            </button>
-        </div>
-        <div class="my-message">
-            <div class="white-bg">
-                <div class="icon">
-                    <svg class="icon" width="22" height="22">
-                        <use href="sprite.svg#attach"/>
+            <div class="time" contenteditable="true">20:55</div>
+            <div class="right">
+                <div class="lock-rotate"></div>
+                <div class="clock"></div>
+                <label class="battery-percent">
+                    <input type="number" min="20" max="100" value="62" id="battery"/>
+                    %
+                </label>
+                <div class="battery-icon">
+                    <svg width="54" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 12">
+                        <rect id="battery-icon" x="2" y="2.5" width="12" height="7.5" rx="1" fill="currentColor"/>
+                        <path d=" M 25.25 8.187 C 26.113 7.965 26.75 7.182 26.75 6.25 C 26.75 5.318 26.113 4.535 25.25 4.313 L 25.25 8.187 Z  M 2.25 0.25 C 1.145 0.25 0.25 1.145 0.25 2.25 L 0.25 9.75 C 0.25 10.855 1.145 11.75 2.25 11.75 L 22.25 11.75 C 23.355 11.75 24.25 10.855 24.25 9.75 L 24.25 2.25 C 24.25 1.145 23.355 0.25 22.25 0.25 L 2.25 0.25 Z  M 2.25 1.25 C 1.698 1.25 1.25 1.698 1.25 2.25 L 1.25 9.75 C 1.25 10.302 1.698 10.75 2.25 10.75 L 22.25 10.75 C 22.802 10.75 23.25 10.302 23.25 9.75 L 23.25 2.25 C 23.25 1.698 22.802 1.25 22.25 1.25 L 2.25 1.25 Z "
+                              fill-rule="evenodd" fill="rgb(149,149,149)"/>
                     </svg>
                 </div>
             </div>
         </div>
-        <div class="camera">
-            <svg class="icon" width="28" height="22">
-                <use href="sprite.svg#camera"/>
-            </svg>
+        <div class="user-info">
+            <div class="back">
+                <svg width="28" height="44">
+                    <use href="sprite.svg#back"/>
+                </svg>
+            </div>
+            <div class="ava">
+                <button id="update-avatar">
+                    <img src="https://www.thispersondoesnotexist.com/image" alt="Avatar" id="avatar">
+                </button>
+            </div>
+            <div class="user">
+                <div class="name" contenteditable="true">Ульяна</div>
+                <div class="sub">был(-а) сегодня в <span contenteditable="true">09:08</span></div>
+            </div>
+            <div class="video">
+                <svg width="70" height="80">
+                    <use href="sprite.svg#video"/>
+                </svg>
+            </div>
+            <div class="audio">
+                <svg width="38" height="80">
+                    <use href="sprite.svg#audio"/>
+                </svg>
+            </div>
         </div>
-        <div class="mic">
-            <svg class="icon" width="15" height="22">
-                <use href="sprite.svg#mic"/>
-            </svg>
+        <div class="chat" id="chat">
+
+        </div>
+        <div class="write-message">
+            <div class="add">
+                <button id="add">
+                    <svg class="icon" width="40" height="38">
+                        <use href="sprite.svg#plus"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="my-message">
+                <div class="white-bg">
+                    <div class="icon">
+                        <svg class="icon" width="44" height="44">
+                            <use href="sprite.svg#attach"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="camera">
+                <svg class="icon" width="56" height="44">
+                    <use href="sprite.svg#camera"/>
+                </svg>
+            </div>
+            <div class="mic">
+                <svg class="icon" width="30" height="44">
+                    <use href="sprite.svg#mic"/>
+                </svg>
+            </div>
         </div>
     </div>
 </div>
@@ -106,19 +110,19 @@
     <div class="message">
         <div class="actions">
             <button class="action-delete" title="Delete">
-                <svg class="icon" width="20" height="20">
+                <svg class="icon" width="40" height="40">
                     <use href="sprite.svg#delete"/>
                 </svg>
             </button>
             <button class="action-user" title="Change user">
-                <svg class="icon" width="20" height="20">
+                <svg class="icon" width="40" height="40">
                     <use href="sprite.svg#arrow"/>
                 </svg>
             </button>
         </div>
         <div class="message-container">
             <div class="dialog-point">
-                <svg width="10" height="12">
+                <svg width="20" height="24">
                     <use href="sprite.svg#msg"/>
                 </svg>
             </div>
@@ -128,7 +132,7 @@
                 </div>
                 <div class="info">
                     <div class="time" contenteditable="true">TI:ME</div>
-                    <svg class="icon" width="13" height="8">
+                    <svg class="icon" width="26" height="16">
                         <use href="sprite.svg#read"/>
                     </svg>
                 </div>
@@ -137,6 +141,7 @@
         </div>
     </div>
 </template>
+
 <script src="script.js"></script>
 </body>
 </html>
