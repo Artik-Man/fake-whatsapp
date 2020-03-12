@@ -15,8 +15,13 @@
     };
 
     const batteryIcon = document.getElementById('battery-icon');
-    document.getElementById('battery').addEventListener('change', (e) => {
+    document.getElementById('battery').addEventListener('change', e => {
         batteryIcon.width.baseVal.value = (e.target.valueAsNumber / 5).toFixed(0);
+    });
+
+    const ava = document.getElementById('avatar');
+    document.getElementById('avatar-url').addEventListener('change', e => {
+        ava.src = e.target.value;
     });
 
     const chat = document.getElementById('chat');
