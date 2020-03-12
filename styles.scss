@@ -1,0 +1,242 @@
+* {
+  box-sizing: border-box;
+  cursor: default;
+}
+
+[contenteditable] {
+  cursor: text;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+}
+
+.controls {
+  margin: 0 auto;
+  max-width: 375px;
+  padding: 50px 0;
+}
+
+.viewport {
+  margin: 0 auto;
+  width: 375px;
+  height: 667px;
+  box-shadow: 0 0 5px 0 black;
+  background: url(bg.png) center;
+  background-size: 130%;
+  display: grid;
+  grid-template-rows: 20px 44px 1fr 42px;
+  overflow: hidden;
+  border-radius: 4px;
+
+  .statusbar {
+    background: #f2f0ef;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    font-size: 12px;
+
+    .left {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .time {
+      text-align: center;
+      font-weight: 600;
+      padding: 3px 0 0 0;
+    }
+
+    .signal {
+      padding: 0 0 0 8px;
+    }
+
+    .operator {
+      padding: 0px 5px 0 3px;
+    }
+
+    .battery-icon {
+      padding: 0 3px 0 3px;
+    }
+  }
+
+  .user-info {
+    background: #f2f0ef;
+    border-bottom: 1px solid #a4a39f;
+    display: grid;
+    grid-template-columns: 60px 40px 1fr 50px 50px;
+    line-height: 1;
+    overflow: hidden;
+
+    .back {
+      padding: 10px 0 0 9px;
+    }
+
+    .ava {
+      padding: 3px 0 0 3px;
+
+      img {
+        width: 36px;
+        height: 36px;
+        border-radius: 50px;
+        object-fit: cover;
+      }
+    }
+
+    .user {
+      padding: 7px 0 0 7px;
+
+      .name {
+        font-weight: 600;
+      }
+
+      .sub {
+        font-size: 11px;
+        color: #86868a;
+        padding: 3px 0 0 0;
+        letter-spacing: 0.9px;
+      }
+    }
+
+    .video {
+      padding: 2px 0 0 9px;
+    }
+
+    .audio {
+      padding: 0 0 0 12px;
+    }
+  }
+
+  .chat {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding: 5px 16px;
+  }
+
+  .write-message {
+    background: #f6f6f6;
+    border-top: 1px solid #f6f6f6;
+    display: grid;
+    grid-template-columns: 40px 1fr 42px 42px;
+
+    .add {
+      padding: 10px 0 0 9px;
+
+      button {
+        background: none;
+        border: none;
+      }
+    }
+
+    .camera {
+      padding: 8px 0 0 2px;
+    }
+
+    .mic {
+      padding: 8px 0 0 10px;
+    }
+
+    .my-message {
+      padding: 6px 16px 7px 8px;
+
+      .white-bg {
+        background: white;
+        height: 100%;
+        border: 1px solid #b4b4b4;
+        border-radius: 15px;
+        padding: 3px 3px 0 0;
+        display: flex;
+        justify-content: flex-end;
+
+        .icon {
+          margin-bottom: -4px;
+        }
+      }
+    }
+  }
+}
+
+.message {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-start;
+  --mainColor: #f7f7f7;
+
+  .message-container {
+    font-size: 14px;
+    position: relative;
+    background: var(--mainColor);
+    border: 1px solid var(--mainColor);
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+
+    .dialog-point {
+      position: absolute;
+      bottom: 6px;
+      right: 100%;
+      width: 10px;
+      height: 12px;
+      color: var(--mainColor);
+      filter: drop-shadow(-1px 1px 1px rgba(0, 0, 0, .3));
+    }
+
+    .message-content {
+      padding: 4px 6px;
+      max-width: 250px;
+    }
+
+    .text {
+      word-break: break-word;
+      display: inline;
+    }
+
+    .info {
+      font-size: 10px;
+      padding: 5px 0 0 14px;
+      display: flex;
+      float: right;
+      align-items: center;
+
+      .time {
+        color: #86868a;
+      }
+
+      .icon {
+        display: none;
+        margin-left: 2px;
+      }
+    }
+  }
+
+
+  &.out {
+    --mainColor: #dcf8c5;
+    justify-content: flex-end;
+
+    .dialog-point {
+      left: 100%;
+      right: auto;
+      transform: scale(-1, 1);
+      //color: #dcf8c5;
+    }
+
+    .message-container {
+      //background: #dcf8c5;
+
+      .info {
+        .icon {
+          display: block;
+        }
+      }
+    }
+  }
+}

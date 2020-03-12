@@ -1,0 +1,201 @@
+* {
+  box-sizing: border-box;
+  cursor: default;
+}
+
+[contenteditable] {
+  cursor: text;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+}
+
+.controls {
+  margin: 0 auto;
+  max-width: 375px;
+  padding: 50px 0;
+}
+
+.viewport {
+  margin: 0 auto;
+  width: 375px;
+  height: 667px;
+  box-shadow: 0 0 5px 0 black;
+  background: url(bg.png) center;
+  background-size: 130%;
+  display: grid;
+  grid-template-rows: 20px 44px 1fr 42px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.viewport .statusbar {
+  background: #f2f0ef;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  font-size: 12px;
+}
+.viewport .statusbar .left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.viewport .statusbar .right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.viewport .statusbar .time {
+  text-align: center;
+  font-weight: 600;
+  padding: 3px 0 0 0;
+}
+.viewport .statusbar .signal {
+  padding: 0 0 0 8px;
+}
+.viewport .statusbar .operator {
+  padding: 0px 5px 0 3px;
+}
+.viewport .statusbar .battery-icon {
+  padding: 0 3px 0 3px;
+}
+.viewport .user-info {
+  background: #f2f0ef;
+  border-bottom: 1px solid #a4a39f;
+  display: grid;
+  grid-template-columns: 60px 40px 1fr 50px 50px;
+  line-height: 1;
+  overflow: hidden;
+}
+.viewport .user-info .back {
+  padding: 10px 0 0 9px;
+}
+.viewport .user-info .ava {
+  padding: 3px 0 0 3px;
+}
+.viewport .user-info .ava img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+.viewport .user-info .user {
+  padding: 7px 0 0 7px;
+}
+.viewport .user-info .user .name {
+  font-weight: 600;
+}
+.viewport .user-info .user .sub {
+  font-size: 11px;
+  color: #86868a;
+  padding: 3px 0 0 0;
+  letter-spacing: 0.9px;
+}
+.viewport .user-info .video {
+  padding: 2px 0 0 9px;
+}
+.viewport .user-info .audio {
+  padding: 0 0 0 12px;
+}
+.viewport .chat {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding: 5px 16px;
+}
+.viewport .write-message {
+  background: #f6f6f6;
+  border-top: 1px solid #f6f6f6;
+  display: grid;
+  grid-template-columns: 40px 1fr 42px 42px;
+}
+.viewport .write-message .add {
+  padding: 10px 0 0 9px;
+}
+.viewport .write-message .add button {
+  background: none;
+  border: none;
+}
+.viewport .write-message .camera {
+  padding: 8px 0 0 2px;
+}
+.viewport .write-message .mic {
+  padding: 8px 0 0 10px;
+}
+.viewport .write-message .my-message {
+  padding: 6px 16px 7px 8px;
+}
+.viewport .write-message .my-message .white-bg {
+  background: white;
+  height: 100%;
+  border: 1px solid #b4b4b4;
+  border-radius: 15px;
+  padding: 3px 3px 0 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.viewport .write-message .my-message .white-bg .icon {
+  margin-bottom: -4px;
+}
+
+.message {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-start;
+  --mainColor: #f7f7f7;
+}
+.message .message-container {
+  font-size: 14px;
+  position: relative;
+  background: var(--mainColor);
+  border: 1px solid var(--mainColor);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+.message .message-container .dialog-point {
+  position: absolute;
+  bottom: 6px;
+  right: 100%;
+  width: 10px;
+  height: 12px;
+  color: var(--mainColor);
+  filter: drop-shadow(-1px 1px 1px rgba(0, 0, 0, 0.3));
+}
+.message .message-container .message-content {
+  padding: 4px 6px;
+  max-width: 250px;
+}
+.message .message-container .text {
+  word-break: break-word;
+  display: inline;
+}
+.message .message-container .info {
+  font-size: 10px;
+  padding: 5px 0 0 14px;
+  display: flex;
+  float: right;
+  align-items: center;
+}
+.message .message-container .info .time {
+  color: #86868a;
+}
+.message .message-container .info .icon {
+  display: none;
+  margin-left: 2px;
+}
+.message.out {
+  --mainColor: #dcf8c5;
+  justify-content: flex-end;
+}
+.message.out .dialog-point {
+  left: 100%;
+  right: auto;
+  transform: scale(-1, 1);
+}
+.message.out .message-container .info .icon {
+  display: block;
+}
+
+/*# sourceMappingURL=styles.css.map */
