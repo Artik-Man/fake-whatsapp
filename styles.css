@@ -8,6 +8,24 @@ html, body {
   font-family: "Roboto", -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
 }
 
+.login {
+  position: fixed;
+  z-index: 9999999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login > *:last-child {
+  padding-bottom: 100px;
+}
+
 .app {
   display: grid;
   grid-template-areas: "viewport controls";
@@ -102,7 +120,7 @@ html, body {
 }
 .app .viewport .statusbar .battery-icon {
   padding: 0 6px 0 6px;
-  color: #54d769;
+  color: #333;
 }
 .app .viewport .user-info {
   background: #f6f6f6;

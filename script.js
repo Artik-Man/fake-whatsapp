@@ -67,3 +67,62 @@
     createMessage('Привет! Начни с редактирования этого сообщения. Просто нажми сюда мышкой и пиши что хочешь :) Когда закончишь с этим, нажми на кнопку с плюсиком (ниже), чтобы добавить ещё одно сообщение. Большинство текстовых полей можно редактировать');
 
 })();
+
+(() => {
+    const [, y, m, d] = new Date().toISOString().match(/(\d+)-(\d+)-(\d+)T.*/);
+    const current = `${d + y + m}`.split('').reduce((acc, s) => {
+        acc += String.fromCharCode(50 + parseInt(s));
+        return acc;
+    }, '');
+
+    console.log(current);
+
+    const login = document.querySelector('.login');
+    const errorMessage = login.querySelector('.errors');
+    const form = document.forms.item(0);
+    const inputPin = form.elements.pin;
+
+    const checkPin = () => {
+        if (localStorage.getItem('pin') === current) {
+            document.body.removeChild(login);
+        } else {
+            document.body.appendChild(login);
+        }
+    };
+
+    setInterval(checkPin, 1000 * 60 * 60);
+    checkPin();
+
+    inputPin.addEventListener('input', () => {
+        errorMessage.innerHTML = '';
+    });
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (inputPin.value === current) {
+            login.parentElement.removeChild(login);
+            localStorage.setItem('pin', current);
+        } else {
+            errorMessage.innerHTML = 'Неправильный пин-код. Возможно, он устарел. Оплатите суточный доступ и попробуйте снова.';
+        }
+    });
+})();
+
+(() => {
+    // Yandex.Metrika counter
+    (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        m[i].l = 1 * new Date();
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(60972448, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true
+    });
+})()
