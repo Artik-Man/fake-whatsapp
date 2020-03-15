@@ -75,7 +75,7 @@
         return acc;
     }, '');
 
-    console.log(current);
+    console.log('111101' + current + '988');
 
     const login = document.querySelector('.login');
     const errorMessage = login.querySelector('.errors');
