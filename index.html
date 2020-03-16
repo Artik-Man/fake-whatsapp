@@ -29,6 +29,7 @@
         </p>
         <p>Можешь отредактировать "текущее время", "уровень заряда аккумулятора", "имя" и "время последней активности"
             пользователя, а также "текст сообщений" и "дату отправки сообщения"</p>
+
     </div>
     <div class="viewport" id="viewport">
         <div class="statusbar">
@@ -38,7 +39,7 @@
                         <use href="sprite.svg#signal"/>
                     </svg>
                 </div>
-                <div class="operator" contenteditable="true">Билайн</div>
+                <div class="operator" contenteditable="true" spellcheck="false">Билайн</div>
                 <div class="wifi">
                     <svg width="30" height="20">
                         <use href="sprite.svg#wifi"/>
@@ -89,7 +90,13 @@
             </div>
         </div>
         <div class="chat" id="chat">
-
+            <div class="message-container">
+                <div class="chat-start-date">
+                    <div class="text" contenteditable="true">
+                        Сегодня
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="write-message">
             <div class="add">
@@ -170,7 +177,6 @@
     <p class="errors"></p>
 
 </div>
-
 <script src="script.js"></script>
 </body>
 </html>
