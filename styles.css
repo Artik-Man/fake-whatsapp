@@ -33,6 +33,8 @@ input[type=number] {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
+  display: none;
 }
 .login > *:last-child {
   padding-bottom: 100px;
